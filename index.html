@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Udoekong's Capstone Project</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="site-header">
+<h1 id="site-title">Udoekong's Capstone Project</h1>
+<p class="tagline">A uniquely-built static site for Emem — deploy to Azure Blob Storage</p>
+</header>
+
+
+<main class="container">
+<section class="hero">
+<h2>Welcome, To Emem Static Website</h2>
+<p>This static site is intentionally simple and **fully customizable**. Edit `index.html` and `styles.css` to make it yours.</p>
+<a class="cta" href="#features">Get started</a>
+</section>
+
+
+<section id="features" class="features">
+<article>
+<h3>What this project demonstrates</h3>
+<ul>
+<li>Provisioning an Azure Storage account with `az` (Azure CLI)</li>
+<li>Enabling static website hosting on Blob Storage</li>
+<li>Uploading site files using Azure CLI</li>
+<li>Optional: Automating deployment using GitHub Actions</li>
+</ul>
+</article>
+
+
+<article>
+<h3>How to Navigate Udoekong's Static Website</h3>
+<p>Click on the about us then you'll know more about us</p>
+</article>
+</section>
+
+
+<section class="contact">
+<h3>Group details</h3>
+<p>Group: <strong>Emem</strong></p>
+<p>Project: Static Website Deployment to Azure via CLI + GitHub Actions</p>
+</section>
+</main>
+
+
+<footer class="site-footer">
+<p>© <span id="year"></span> Udoekong's— Unique Static Site</p>
+</footer>
+
+
+<script>
+document.getElementById('year').innerText = new Date().getFullYear();
+</script>
+</body>
+</html>
