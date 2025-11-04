@@ -1,0 +1,35 @@
+name: 🚀 Deploy Static Website to Azure Storage
+
+on:
+  push:
+    branches:
+      - main   # or 'master' depending on your default branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🧾 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🔐 Azure Login
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: 📂 Upload files to Azure Storage
+        run: |
+          az storage blob upload-batch \
+            --account-name ${{ secrets.AZURE_STORAGE_ACCOUNT }} \
+            --auth-mode key \
+            --destination '$web' \
+            --source ./emem_Static_Website \
+            --overwrite true
+
+      - name: 🌐 Get Static Website URL
+        run: |
+          az storage account show \
+            -n ${{ secrets.AZURE_STORAGE_ACCOUNT }} \
+            -g ${{ secrets.AZURE_RESOURCE_GROUP }} \
+            --query "primaryEndpoints.web" -o tsv
